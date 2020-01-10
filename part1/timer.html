@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- parses jsx to javascript -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <!-- responsible for updating DOM -->
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <!-- translate and compiles jsx to javascript -->
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+    <title>First React App</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        
+        let INTERVAL_ID;
+
+        class Timer extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    seconds: 0
+                };
+                // https://www.freecodecamp.org/news/this-is-why-we-need-to-bind-event-handlers-in-class-components-in-react-f7ea1a6f93eb/
+                this.startTimer = this.startTimer.bind(this);
+                this.stopTimer = this.stopTimer.bind(this);
+            }
+
+            tick() {
+                this.setState(state => ({
+                    seconds: state.seconds + 1
+                }));
+            }
+
+            stopTimer() {
+                clearInterval(INTERVAL_ID);
+                this.setState(state => ({
+                    seconds: 0
+                }));
+            }
+
+
+            startTimer() {
+                INTERVAL_ID = setInterval(() => this.tick(), 1000)
+            }
+
+            render() {
+                return (
+                    <div>
+                        <h1>Seconds : {this.state.seconds}</h1>
+                        <button className="btn btn-primary" onClick={this.startTimer}>Start Timer</button>
+                        <button className="btn btn-danger" onClick={this.stopTimer}>Start Timer</button>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<Timer />, document.querySelector("#app"));
+    </script>
+</body>
+
+</html>

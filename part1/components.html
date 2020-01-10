@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<!-- https://www.youtube.com/watch?v=9NQtG_IIh6M&list=PLhQjrBD2T381Q6R1jRxgXknYO7VuTYPBI&index=10&t=406s -->
+
+<head>
+    <!-- parses jsx to javascript -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <!-- responsible for updating DOM -->
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <!-- translate and compiles jsx to javascript -->
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <title>First React App</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        class Hello extends React.Component {
+            render() {
+                return (
+                    <h1>hello world {this.props.name} </h1>
+                )
+            }
+        }
+
+        class Component2 extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <Hello name="Kevin" />
+                        <Hello name="Allan" />
+                        <Hello name="Hans" />
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<Component2 />, document.querySelector("#app"));
+    </script>
+</body>
+
+</html>
