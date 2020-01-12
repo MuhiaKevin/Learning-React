@@ -25,7 +25,8 @@
             constructor(props) {
                 super(props);
                 this.state = {
-                    seconds: 0
+                    seconds: 0,
+                    minutes: 0
                 };
                 // https://www.freecodecamp.org/news/this-is-why-we-need-to-bind-event-handlers-in-class-components-in-react-f7ea1a6f93eb/
                 this.startTimer = this.startTimer.bind(this);
@@ -43,6 +44,7 @@
                 this.setState(state => ({
                     seconds: 0
                 }));
+              
             }
 
 
@@ -55,7 +57,7 @@
                     <div>
                         <h1>Seconds : {this.state.seconds}</h1>
                         <button className="btn btn-primary" onClick={this.startTimer}>Start Timer</button>
-                        <button className="btn btn-danger" onClick={this.stopTimer}>Start Timer</button>
+                        <button className="btn btn-danger" onClick={this.stopTimer}>Stop Timer</button>
                     </div>
                 )
             }
