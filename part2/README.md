@@ -1,5 +1,9 @@
 # Basic Calculator
-This is a basic calculator written in React
+This is a basic calculator written in React. Happy hacking.
+
+### Screenshot
+
+![alt test](screenshot/Selection_014.png)
 
 ### Notes
 

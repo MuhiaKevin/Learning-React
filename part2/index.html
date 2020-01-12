@@ -28,6 +28,10 @@
             margin: 5px;
 
         }
+        
+        h1{
+            font-family: 'Nova Flat'
+        }
 
         .calculator-body {
             border: 1px solid #ccc;
@@ -88,7 +92,7 @@
         }
     </style>
 
-    <title>Virtual Kalculator</title>
+    <title>Calculator</title>
 </head>
 
 <body>
@@ -210,7 +214,7 @@
             render() {
                 return (
                     <div className="calculator-body">
-                        <h1>Virtual Kalkulator</h1>
+                        <h1>Calculator</h1>
                         <Result result={this.state.result} />
                         <KeyPad onClick={this.onClick} />
 
