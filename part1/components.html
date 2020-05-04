@@ -18,7 +18,7 @@
         class Hello extends React.Component {
             render() {
                 return (
-                    <h1>hello world {this.props.name} </h1>
+                    <h1>hello world {this.props.firstname}  {this.props.lastname} </h1>
                 )
             }
         }
@@ -27,9 +27,9 @@
             render() {
                 return (
                     <div>
-                        <Hello name="Kevin" />
-                        <Hello name="Allan" />
-                        <Hello name="Hans" />
+                        <Hello firstname="Kevin" lastname="Muhia" />
+                        <Hello firstname="Allan" lastname="Mbugua"/>
+                        <Hello firstname="Hans"  lastname="Thuku"/>
                     </div>
                 )
             }

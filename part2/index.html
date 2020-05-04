@@ -7,90 +7,9 @@
     <!-- responsible for updating DOM -->
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
     <link href='https://fonts.googleapis.com/css?family=Nova Flat' rel='stylesheet'>
+    <link href='./style.css' rel='stylesheet'>
     <!-- translate and compiles jsx to javascript -->
     <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
-    <style>
-        .result {
-            width: 92%;
-            font-size: 5rem;
-            height: 80px;
-            border: none;
-            background-color: #252525;
-            color: #fff;
-            text-align: right;
-            padding-right: 20px;
-            padding-left: 10px;
-        }
-
-        p {
-            font-family: 'Nova Flat';
-            font-size: 40px;
-            margin: 5px;
-
-        }
-        
-        h1{
-            font-family: 'Nova Flat'
-        }
-
-        .calculator-body {
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 400px;
-        }
-
-        button:hover {
-            background-color: #eaeaea;
-        }
-
-        .operator {
-            color: #337cac;
-        }
-
-        .all-clear {
-            background-color: #f0595f;
-            border-color: #b0353a;
-            color: #fff;
-        }
-
-        .all-clear:hover {
-            background-color: #f17377;
-        }
-
-        .equal-sign {
-            background-color: #2e86c0;
-            border-color: #337cac;
-            color: #fff;
-        }
-
-        .equal-sign:hover {
-            background-color: #4e9ed4;
-        }
-
-        .calculator-keys {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-gap: 20px;
-            padding: 20px;
-        }
-
-        button {
-            height: 60px;
-            background-color: #fff;
-            border-radius: 3px;
-            border: 1px solid #c4c4c4;
-            background-color: transparent;
-            font-size: 2rem;
-            color: #333;
-            background-image: linear-gradient(to bottom, transparent, transparent 50%, rgba(0, 0, 0, .04));
-            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05), inset 0 1px 0 0 rgba(255, 255, 255, .45), inset 0 -1px 0 0 rgba(255, 255, 255, .15), 0 1px 0 0 rgba(255, 255, 255, .15);
-            text-shadow: 0 1px rgba(255, 255, 255, .4);
-        }
-    </style>
 
     <title>Calculator</title>
 </head>
@@ -99,8 +18,10 @@
     <div class="container">
         <div id="app"></div>
     </div>
-    <script type="text/babel">
 
+    <script type="text/babel">
+        
+        // result display area
         class Result extends React.Component {
             render() {
 
@@ -112,8 +33,8 @@
             }
         }
 
+        // keypad area where user taps the keys
         class KeyPad extends React.Component {
-
 
             render() {
                 return (
@@ -130,7 +51,7 @@
 
                         <button name="4" onClick={e => { this.props.onClick(e.target.name) }}>4</button>
                         <button name="5" onClick={e => { this.props.onClick(e.target.name) }}>5</button>
-                        <button name="6" onClick={e => { this.props.onClick(e.target.name) }}>3</button>
+                        <button name="6" onClick={e => { this.props.onClick(e.target.name) }}>6</button>
                         <button name="-" className="operator" onClick={e => { this.props.onClick(e.target.name) }}>-</button>
 
                         <button name="7" onClick={e => { this.props.onClick(e.target.name) }}>7</button>
