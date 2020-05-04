@@ -3,7 +3,7 @@ Simple Todo app
 
 ### Screenshot
 
-![alt test](doc/Selection_001.png)
+![alt test](docs/todo-app.gif)
 
 ### Technologies
 
