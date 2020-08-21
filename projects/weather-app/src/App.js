@@ -5,7 +5,6 @@ import './App.css'
 
 class App extends React.Component {
   state = {
-
     temperature: undefined,
     city: undefined,
     country: undefined,
@@ -14,7 +13,7 @@ class App extends React.Component {
     error: undefined
   }
   async componentDidMount() {
-    let weatherurl = `https://api.openweathermap.org/data/2.5/weather?q=naivasha,kenya&units=metric&APPID=${process.env.REACT_APP_OPENWEATHER_API}`;
+    let weatherurl = `https://api-proxy-weather.herokuapp.com/api/v1/weather`;
     const api_call = await fetch(weatherurl);
     const response = await api_call.json()
 
@@ -36,7 +35,7 @@ class App extends React.Component {
     let weatherurl = "";
 
     if (city) {
-      weatherurl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=${process.env.REACT_APP_OPENWEATHER_API}` ;
+      weatherurl = `https://api-proxy-weather.herokuapp.com/api/v1/weather?city=${city}` ;
 
     }
 
