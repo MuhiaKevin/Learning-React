@@ -13,6 +13,7 @@ class App extends React.Component {
     error: undefined
   }
   async componentDidMount() {
+    // changed this
     let weatherurl = `https://api-proxy-weather.herokuapp.com/api/v1/weather`;
     const api_call = await fetch(weatherurl);
     const response = await api_call.json()
