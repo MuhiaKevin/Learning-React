@@ -1,72 +1,56 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Result from './components/Result.js'
 import KeyPad from './components/KeyPad.js'
 
 
-class Calculator extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      result: ""
-    }
-  }
+function Calculator() {
+  const  [result, setResult]  = useState("");
 
-
-  calculate() {
+  const calculate = () => {
     try {
-      this.setState({
-        result: (eval(this.state.result) || "") + ""
-      })
+      setResult(((eval(result) || "") + ""))
+
     } catch (error) {
-      this.setState({result : "error"})
+      setResult("error")
     }
   }
 
   // resets the result box
-  reset = () => {
-    this.setState(({
-      result: ""
-    }));
+  const reset = () => {
+    setResult("")
   }
 
   // backspace button
-  backSpace = () => {
-    this.setState({
-      result: this.state.result.slice(0, -1)
-    });
+  const backSpace = () => {
+    setResult(result.slice(0, -1))
   }
 
 
-  onClick = (button) => {
+  const onClick = (button) => {
     // if button is equal sign button then call the calculate method
     if (button === "=") {
-      this.calculate();
+      calculate();
     }
     else if (button === "CE") {
-      this.backSpace();
+      backSpace();
     }
     else if (button === "C") {
-      this.reset();
+      reset();
     }
     else {
-      this.setState({
-        result: this.state.result + button
-      })
+      setResult(result + button)
     }
   }
 
 
-
-  render() {
-    return (
-      <div className="calculator-body">
-        <h1>Calculator</h1>
-        <Result result={this.state.result} />
-        <KeyPad onClick={this.onClick} />
-      </div>
-    );
-  }
+  return (
+    <div className="calculator-body">
+      <h1>Calculator</h1>
+      <Result result={result} />
+      <KeyPad onClick={onClick} />
+    </div>
+  )
 }
 
 export default Calculator;
